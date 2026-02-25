@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selected Writings | Julian Dossett</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --nav-bg: rgba(5, 7, 17, 0.75);
+            --text-main: #111;
+            --text-muted: #555;
+            --link-blue: #0056d6;
+            --border-soft: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #ffffff;
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Dark Nav Bar (matches Home) */
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(18px);
+            background: var(--nav-bg);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            z-index: 10;
+        }
+
+        nav {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-size: 0.85rem;
+            letter-spacing: 0.12em;
+            color: #ccc;
+            text-transform: uppercase;
+        }
+
+        .nav-links a {
+            margin-left: 1.5rem;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        /* Page Layout */
+        main {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .story {
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .story a {
+            color: var(--link-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .story a:hover {
+            text-decoration: underline;
+        }
+
+        .date {
+            color: var(--text-muted);
+            margin-left: 0.35rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="nav-brand">Julian Dossett</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="selected-writings.html">Selected Writings</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Selected Writings</h1>
+
+        <!-- CNET Section -->
+        <h2>CNET</h2>
+        <div class="story">
+            <a href="#">Placeholder Story Title</a>
+            <span class="date">— Jan 2024</span>
+        </div>
+        <div class="story">
+            <a href="#">Placeholder Story Title</a>
+            <span class="date">— Oct 2023</span>
+        </div>
+        <div class="story">
+            <a href="#">Placeholder Story Title</a>
+            <span class="date">— Jun 2023</span>
+        </div>
+
+        <!-- SPACE.com Section -->
+        <h2>SPACE.com</h2>
+        <div class="story">
+            <a href="#">Placeholder Story Title</a>
+            <span class="date">— 2024</span>
+        </div>
+        <div class="story">
+            <a href="#">Placeholder Story Title</a>
+            <span class="date">— 2023</span>
+        </div>
+
+        <!-- New Mexico Magazine Section -->
+        <h2>New Mexico Magazine</h2>
+        <div class="story">
+            <a href="#">Placeholder Story Title</a>
+            <span class="date">— 2024</span>
+        </div>
+        <div class="story">
+            <a href="#">Placeholder Story Title</a>
+            <span class="date">— 2023</span>
+        </div>
+
+    </main>
+
+</body>
+</html>
