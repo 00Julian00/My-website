@@ -1,46 +1,216 @@
-// ===== CONTACT FORM HANDLING =====
-const contactForm = document.getElementById('contactForm');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Julian Dossett</title>
 
-if (contactForm) {
-    contactForm.addEventListener('submit', handleFormSubmit);
-}
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
-function handleFormSubmit(e) {
-    e.preventDefault();
-    
-    // Get form values
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const subject = document.getElementById('subject').value.trim();
-    const message = document.getElementById('message').value.trim();
-    
-    // Simple validation
-    if (!name || !email || !subject || !message) {
-        alert('Please fill in all fields');
-        return;
-    }
-    
-    if (!isValidEmail(email)) {
-        alert('Please enter a valid email address');
-        return;
-    }
-    
-    // Replace 'your.email@example.com' with your actual email address
-    const recipientEmail = 'your.email@example.com';
-    
-    // Construct mailto link
-    const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${name} (${email})\n\nSubject: ${subject}\n\n${message}`)}`;
-    
-    // Open default email client
-    window.location.href = mailtoLink;
-    
-    // Reset form
-    contactForm.reset();
-}
+    <style>
+        :root {
+            --bg: #050711;
+            --accent: #3af2ff;
+            --accent2: #ff4b81;
+            --text-main: #f5f7ff;
+            --text-muted: #9aa0c2;
+            --nav-bg: rgba(5, 7, 17, 0.75);
+            --border-soft: rgba(255, 255, 255, 0.08);
+        }
 
-function isValidEmail(email) {
-    const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
-    return emailRegex.test(email);
-}
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: radial-gradient(circle at top, #151b3a 0, #050711 45%, #02030a 100%);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-console.log('✨ Contact form ready!');
+        /* Nav Bar */
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(18px);
+            background: var(--nav-bg);
+            border-bottom: 1px solid var(--border-soft);
+            z-index: 10;
+        }
+
+        nav {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-size: 0.85rem;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .nav-links a {
+            margin-left: 1.5rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        /* Contact Form Layout */
+        main {
+            max-width: 600px;
+            margin: 4rem auto;
+            padding: 2rem;
+            background: rgba(10, 14, 30, 0.85);
+            border-radius: 16px;
+            border: 1px solid var(--border-soft);
+            backdrop-filter: blur(18px);
+            flex-grow: 1;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-soft);
+            background: rgba(5, 7, 17, 0.7);
+            color: var(--text-main);
+            font-size: 1rem;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        /* Spam-resistant honeypot */
+        .hidden-field {
+            display: none;
+        }
+
+        button {
+            padding: 0.9rem;
+            border-radius: 999px;
+            border: none;
+            background: linear-gradient(120deg, var(--accent), var(--accent2));
+            color: #050711;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s ease-out;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Social Links */
+        .social {
+            text-align: center;
+            margin-top: 2.5rem;
+        }
+
+        .social a {
+            margin: 0 0.75rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .social a:hover {
+            color: var(--accent2);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1.5rem 0;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="nav-brand">Julian Dossett</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="selected-writings.html">Selected Writings</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Contact</h1>
+
+        <form action="mailto:juliandossett@gmail.com" method="POST" enctype="text/plain">
+            <!-- Honeypot field -->
+            <input type="text" name="website" class="hidden-field">
+
+            <div>
+                <label for="name">Name</label>
+                <input id="name" name="Name" type="text" required>
+            </div>
+
+            <div>
+                <label for="email">Email</label>
+                <input id="email" name="Email" type="email" required>
+            </div>
+
+            <div>
+                <label for="subject">Subject</label>
+                <input id="subject" name="Subject" type="text" required>
+            </div>
+
+            <div>
+                <label for="message">Message</label>
+                <textarea id="message" name="Message" required></textarea>
+            </div>
+
+            <button type="submit">Send Message</button>
+        </form>
+
+        <div class="social">
+            <a href="https://www.linkedin.com/in/juliandossett" target="_blank">LinkedIn</a>
+        </div>
+    </main>
+
+    <footer>
+        © 2026 Julian Dossett — All Rights Reserved
+    </footer>
+
+</body>
+</html>
