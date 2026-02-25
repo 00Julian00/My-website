@@ -19,12 +19,23 @@
             --nav-bg: rgba(5, 7, 17, 0.75);
             --border-soft: rgba(255, 255, 255, 0.08);
         }
-            .home h1 {
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: 7rem;
-        letter-spacing: 1px;
-        margin-bottom: 1rem;
-    }
+         .home h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 7.5rem;          /* slightly bigger, more heroic */
+    letter-spacing: 3px;        /* wider spacing = pulp title feel */
+    margin-bottom: 1rem;
+    color: #fdf7e3;             /* warm, aged paperback color */
+
+    /* THICK retro outline */
+    -webkit-text-stroke: 3px #000;
+
+    /* Pulp paperback shadow stack */
+    text-shadow:
+        6px 6px 0px rgba(0, 0, 0, 0.55),      /* heavy offset shadow */
+        0px 0px 12px rgba(255, 75, 129, 0.35), /* magenta cosmic glow */
+        0px 0px 18px rgba(58, 242, 255, 0.35); /* cyan sci-fi glow */
+}
+
 
 
         * {
